@@ -5,9 +5,10 @@ import json
 import sys
 
 stdin: str = "".join(sys.stdin.readlines())
+
 try:
     parsed = ast.literal_eval(stdin)
-    stdout = json.dumps(ast.literal_eval(stdin), indent=4, default=str)
+    stdout = json.dumps(parsed, indent=4, default=str)
 except (ValueError, SyntaxError):
     stdout = stdin
 
